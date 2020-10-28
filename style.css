@@ -218,16 +218,11 @@ body {
 .text-center {
   padding-top: 5%;
 }
-<<<<<<< HEAD
 .profile_image {
-=======
-.profile_picture {
->>>>>>> 607a9fb3c5139c19cc45bd358c2fa78e1d2744fe
   padding: 5%;
 }
 
 .profile_detail {
-<<<<<<< HEAD
   padding-top: 5%;
   padding-right: 10%;
 
@@ -236,12 +231,6 @@ body {
 }
 .profile_detail h5 {
   text-justify: auto;
-=======
-  margin: auto;
-  padding: 5%;
-  text-align: justify;
-  text-size-adjust: 5%;
->>>>>>> 607a9fb3c5139c19cc45bd358c2fa78e1d2744fe
 }
 .service--contents {
   padding-top: 5%;
