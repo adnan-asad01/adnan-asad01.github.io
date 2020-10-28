@@ -99,6 +99,7 @@ body {
 }
 .single--card--component .card img {
   transition: transform 0.2s;
+  height: 500px;
 }
 .single--card--component .card img:hover {
   -ms-transform: scale(1.1);
