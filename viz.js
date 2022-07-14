@@ -1,6 +1,9 @@
-function initializerViz(){
 
-    var placeholderDiv = document.getElementById("tableauViz");
+var viz;
+
+window.onload = function() {
+
+    var vizDiv = document.getElementById("tableauViz");
     var url = "https://public.tableau.com/views/CovidDeathToll/DashboardCovidDeath_1?:display_count=n&:origin=viz_share_link";
 
     var options = {
@@ -10,6 +13,6 @@ function initializerViz(){
       hideToolbar: True
 
     };
-    viz = new tableau.Viz(placeholderDiv,url,options);
+    viz = new tableau.Viz(vizDiv,url,options);
 
   }
