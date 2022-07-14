@@ -9,7 +9,8 @@ function initializeViz() {
     var options = {
       width: 600,
       height: 600 ,
-      hideTabs: true
+      hideTabs: true,
+    hideToolbar: true,
       
 
     };
