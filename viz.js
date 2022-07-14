@@ -3,7 +3,7 @@ var viz;
 
 window.onload = function() {
 
-    var vizDiv = document.getElementById("tableauViz");
+    var vizDiv = document.getElementById("myViz");
     var url = "https://public.tableau.com/views/CovidDeathToll/DashboardCovidDeath_1?:display_count=n&:origin=viz_share_link";
 
     var options = {
