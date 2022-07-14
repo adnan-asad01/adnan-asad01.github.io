@@ -9,7 +9,7 @@ window.onload = function() {
     var options = {
       width: 600,
       height: 600 ,
-      hideTabs: True,
+     
 
     };
     viz = new tableau.Viz(vizDiv,url,options);
