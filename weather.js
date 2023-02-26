@@ -32,7 +32,7 @@ $(document).ready(function() {
         $('#temp-table').append(cityRow);
       });
     } */
-    /* card working lets bring map
+    // card working lets bring map
     function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
         $.get(url, function(data) {
@@ -57,7 +57,8 @@ $(document).ready(function() {
           $('#temp-display').append(card);
         });
       }
-      */
+      
+     /*
      // Define a function to retrieve the current temperature, weather information, and time for a given city
      function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
@@ -83,7 +84,7 @@ $(document).ready(function() {
           $('#temp-display').append(cityRow);
         });
       }
-      
+      */
 
     // Retrieve the temperature, weather, and time data for each city and display it in a table format
     for (var i = 0; i < cities.length; i++) {
