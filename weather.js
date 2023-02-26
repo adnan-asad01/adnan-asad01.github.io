@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     // Define the API key and cities to retrieve temperature and time data for
     var api_key = '2302790a204dcdb09dda857f85a308e0';
     var cities = [
@@ -9,7 +9,57 @@ $(document).ready(function() {
         { name: 'Tokyo', timezone: 'Asia/Tokyo', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/tokyo-map.png' },
         { name: 'Sydney', timezone: 'Australia/Sydney', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/sydney-map.png' }
       ];
+  */    
+      $(document).ready(function() {
+        // Define the API key and cities to retrieve temperature and time data for
+        var api_key = '2302790a204dcdb09dda857f85a308e0';
+        var cities = [
+          { name: 'New York', timezone: 'America/New_York' },
+          { name: 'Berlin', timezone: 'Europe/Berlin' },
+          { name: 'London', timezone: 'Europe/London' },
+          { name: 'Paris', timezone: 'Europe/Paris' },
+          { name: 'Tokyo', timezone: 'Asia/Tokyo' },
+          { name: 'Sydney', timezone: 'Australia/Sydney' }
+        ];
       
+        // Retrieve the temperature, weather, and time data for each city and display it in a card format
+        for (var i = 0; i < cities.length; i++) {
+          // Define the card columns
+          if (i % 3 === 0) {
+            var cardColumns = $('<div class="card-columns"></div>');
+            $('#temp-display').append(cardColumns);
+          }
+      
+          // Get the weather data and create a card for the city
+          getWeather(cities[i]);
+      
+          // Create a card for the city
+          function getWeather(city) {
+            var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
+            $.get(url, function(data) {
+              var temp = Math.round(data.main.temp);
+              var weatherDesc = data.weather[0].description;
+              var weatherIcon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
+        
+              // Get the current time in the city's timezone
+              var currentTime = new Date().toLocaleTimeString('en-US', { timeZone: city.timezone });
+        
+              var card = $('<div class="card"></div>');
+              var cardBody = $('<div class="card-body"></div>');
+              var cardTitle = $('<h5 class="card-title">' + city.name + '</h5>');
+              var cardSubtitle = $('<h6 class="card-subtitle mb-2 text-muted">' + weatherDesc + '</h6>');
+              var cardText = $('<p class="card-text">' + temp + '°C</p>');
+              var cardImage = $('<img class="card-img-top" src="' + weatherIcon + '" alt="Card image cap">');
+              var cardFooter = $('<div class="card-footer"><small class="text-muted">' + currentTime + '</small></div>');
+        
+              cardBody.append(cardTitle, cardSubtitle, cardText);
+              card.append(cardImage, cardBody, cardFooter);
+              cardColumns.append(card);
+            });
+          }
+        }
+      });
+        
     /* this is working but using table
     // Define a function to retrieve the current temperature, weather information, and time for a given city
     function getWeather(city) {
@@ -89,12 +139,12 @@ $(document).ready(function() {
         });
       }
       */
-
+/*
     // Retrieve the temperature, weather, and time data for each city and display it in a table format
     for (var i = 0; i < cities.length; i++) {
       getWeather(cities[i]);
     }
-  });
+  });*/
   /*
   function updateTime() {
     var now = new Date();
