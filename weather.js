@@ -2,12 +2,12 @@ $(document).ready(function() {
     // Define the API key and cities to retrieve temperature and time data for
     var api_key = '2302790a204dcdb09dda857f85a308e0';
     var cities = [
-        { name: 'New York', timezone: 'America/New_York', mapUrl: 'new-york-map.jpg' },
-        { name: 'Berlin', timezone: 'Europe/Berlin', mapUrl: 'berlin-map.jpg' },
-        { name: 'London', timezone: 'Europe/London', mapUrl: 'london-map.jpg' },
-        { name: 'Paris', timezone: 'Europe/Paris', mapUrl: 'paris-map.jpg' },
-        { name: 'Tokyo', timezone: 'Asia/Tokyo', mapUrl: 'tokyo-map.jpg' },
-        { name: 'Sydney', timezone: 'Australia/Sydney', mapUrl: 'sydney-map.jpg' }
+        { name: 'New York', timezone: 'America/New_York', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/new-york-map.png' },
+        { name: 'Berlin', timezone: 'Europe/Berlin', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/berlin-map.png' },
+        { name: 'London', timezone: 'Europe/London', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/london-map.png' },
+        { name: 'Paris', timezone: 'Europe/Paris', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/paris-map.png' },
+        { name: 'Tokyo', timezone: 'Asia/Tokyo', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/tokyo-map.png' },
+        { name: 'Sydney', timezone: 'Australia/Sydney', mapUrl: '/Users/adnanasad/Documents/GitHub/adnan-asad01.github.io/images/sydney-map.png' }
       ];
       
     /* this is working but using table
@@ -32,7 +32,7 @@ $(document).ready(function() {
         $('#temp-table').append(cityRow);
       });
     } */
-    // card working lets bring map
+    /*/ card working lets bring map
     function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
         $.get(url, function(data) {
@@ -58,7 +58,7 @@ $(document).ready(function() {
         });
       }
       
-     /*
+     */
      // Define a function to retrieve the current temperature, weather information, and time for a given city
      function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
@@ -84,7 +84,7 @@ $(document).ready(function() {
           $('#temp-display').append(cityRow);
         });
       }
-      */
+      
 
     // Retrieve the temperature, weather, and time data for each city and display it in a table format
     for (var i = 0; i < cities.length; i++) {
