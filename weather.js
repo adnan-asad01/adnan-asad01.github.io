@@ -1,6 +1,8 @@
+require('dotenv').config()
+
 $(document).ready(function() {
     // Define the API key and cities to retrieve temperature and time data for
-    var api_key = '2302790a204dcdb09dda857f85a308e0';
+    var api_key = process.env.API_KEY;
     var cities = [
       { name: 'New York', timezone: 'America/New_York' },
       { name: 'Berlin', timezone: 'Europe/Berlin' },
