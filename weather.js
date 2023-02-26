@@ -57,7 +57,10 @@ $(document).ready(function() {
           $('#temp-display').append(card);
         });
       }
-      
+      // Add the card to a new row every three cards
+      var index = $('#temp-display .row').length;
+      if (index % 3 === 0) {
+          var row = $('<div class="row"></div>');
      
     /*
      // Define a function to retrieve the current temperature, weather information, and time for a given city
