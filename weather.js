@@ -12,7 +12,7 @@ $(document).ready(function() {
         var weatherIcon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
         var cityRow = $('<tr></tr>');
         var cityCell = $('<td class="city-cell">' + city + '</td>');
-        var tempCell = $('<td class="temp-cell">' + temp + '°C</td>');
+        var tempCell = $('<td class="temp-cell">' + Math.round(temp) + '°C</td>');
         var weatherCell = $('<td class="weather-cell">' + weatherDesc + '<br><img src="' + weatherIcon + '"></td>');
         cityRow.append(cityCell, tempCell, weatherCell);
         $('#temp-table').append(cityRow);
