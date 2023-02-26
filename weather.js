@@ -39,6 +39,7 @@ $(document).ready(function() {
       getWeather(cities[i]);
     }
   });
+  /*
   function updateTime() {
     var now = new Date();
     var hours = now.getHours();
@@ -63,4 +64,4 @@ $(document).ready(function() {
   $(document).ready(function() {
     updateTime();
   });
-  
+  */
