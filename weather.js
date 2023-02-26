@@ -8,7 +8,7 @@ $(document).ready(function() {
       var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + api_key + '&units=metric';
       $.get(url, function(data) {
         var temp = data.main.temp;
-        $('#temp-display').append('<div class="city-temp"><span class="city">' + city + '</span><span class="temp">' + temp + '°C</span></div>');
+        $('#temp-display').append('<div class="city-temp"><span class="city">' + city + ': '+'</span><span class="temp">' + temp + '°C</span></div>');
       });
     }
     
