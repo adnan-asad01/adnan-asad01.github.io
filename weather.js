@@ -3,6 +3,7 @@ $(document).ready(function() {
     var api_key = '2302790a204dcdb09dda857f85a308e0';
     var cities = [
       { name: 'New York', timezone: 'America/New_York' },
+      { name: 'Berlin', timezone: 'Europe/Berlin' },
       { name: 'London', timezone: 'Europe/London' },
       { name: 'Paris', timezone: 'Europe/Paris' },
       { name: 'Tokyo', timezone: 'Asia/Tokyo' },
