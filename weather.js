@@ -2,13 +2,14 @@ $(document).ready(function() {
     // Define the API key and cities to retrieve temperature and time data for
     var api_key = '2302790a204dcdb09dda857f85a308e0';
     var cities = [
-      { name: 'New York', timezone: 'America/New_York' },
-      { name: 'Berlin', timezone: 'Europe/Berlin' },
-      { name: 'London', timezone: 'Europe/London' },
-      { name: 'Paris', timezone: 'Europe/Paris' },
-      { name: 'Tokyo', timezone: 'Asia/Tokyo' },
-      { name: 'Sydney', timezone: 'Australia/Sydney' }
-    ];
+        { name: 'New York', timezone: 'America/New_York', mapUrl: 'new-york-map.jpg' },
+        { name: 'Berlin', timezone: 'Europe/Berlin', mapUrl: 'berlin-map.jpg' },
+        { name: 'London', timezone: 'Europe/London', mapUrl: 'london-map.jpg' },
+        { name: 'Paris', timezone: 'Europe/Paris', mapUrl: 'paris-map.jpg' },
+        { name: 'Tokyo', timezone: 'Asia/Tokyo', mapUrl: 'tokyo-map.jpg' },
+        { name: 'Sydney', timezone: 'Australia/Sydney', mapUrl: 'sydney-map.jpg' }
+      ];
+      
     /* this is working but using table
     // Define a function to retrieve the current temperature, weather information, and time for a given city
     function getWeather(city) {
@@ -64,22 +65,25 @@ $(document).ready(function() {
           var temp = Math.round(data.main.temp);
           var weatherDesc = data.weather[0].description;
           var weatherIcon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
-          var lat = data.coord.lat;
-          var lon = data.coord.lon;
-          var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lon + '&zoom=10&size=200x200&maptype=roadmap&markers=color:red%7C' + lat + ',' + lon + '&key=YOUR_API_KEY';
-
-          var card = $('<div class="card text-center mx-3 mb-3"></div>');
+      
+          // Get the current time in the city's timezone
+          var currentTime = new Date().toLocaleTimeString('en-US', { timeZone: city.timezone });
+      
+          var cityRow = $('<div class="col-md-4"></div>');
+          var cityCard = $('<div class="card"></div>');
           var cardBody = $('<div class="card-body"></div>');
-          var cardTitle = $('<h5 class="card-title">' + city.name + '</h5>');
-          var cardSubtitle = $('<h6 class="card-subtitle mb-2 text-muted">' + temp + '°C ' + weatherDesc + ' <img src="' + weatherIcon + '" height="50px"></h6>');
-          var cardText = $('<p class="card-text">Current time: ' + new Date().toLocaleTimeString('en-US', { timeZone: city.timezone }) + '</p>');
-          var cardImage = $('<img src="' + mapUrl + '" class="card-img-bottom" alt="' + city.name + '">');
-
-          cardBody.append(cardTitle, cardSubtitle, cardText, cardImage);
-          card.append(cardBody);
-          $('#temp-display').append(card);
+          var cityTitle = $('<h5 class="card-title">' + city.name + '</h5>');
+          var citySubtitle = $('<h6 class="card-subtitle mb-2 text-muted">' + temp + '°C ' + weatherDesc + '</h6>');
+          var cardImage = $('<img src="' + city.mapUrl + '" class="card-img-top">');
+          var cityTime = $('<p class="card-text">Time: ' + currentTime + '</p>');
+      
+          cardBody.append(cityTitle, citySubtitle, cardImage, cityTime);
+          cityCard.append(cardBody);
+          cityRow.append(cityCard);
+          $('#temp-display').append(cityRow);
         });
       }
+      
 
     // Retrieve the temperature, weather, and time data for each city and display it in a table format
     for (var i = 0; i < cities.length; i++) {
