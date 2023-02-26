@@ -37,3 +37,28 @@ $(document).ready(function() {
       getWeather(cities[i]);
     }
   });
+  function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    hours = checkTime(hours);
+    minutes = checkTime(minutes);
+    seconds = checkTime(seconds);
+    var time = hours + ":" + minutes + ":" + seconds;
+    document.getElementById("live-clock").innerHTML = time;
+    setTimeout(updateTime, 1000);
+  }
+  
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  
+  // Call the updateTime function when the document is ready
+  $(document).ready(function() {
+    updateTime();
+  });
+  
