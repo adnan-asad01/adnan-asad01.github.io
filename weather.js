@@ -82,7 +82,7 @@
         $('#temp-table').append(cityRow);
       });
     } */
-    // card working lets bring map
+    /*/ card working lets bring map
     function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
         $.get(url, function(data) {
@@ -111,7 +111,7 @@
       var index = $('#temp-display .row').length;
       if (index % 3 === 0) {
           var row = $('<div class="row"></div>');
-     
+     */
     /*
      // Define a function to retrieve the current temperature, weather information, and time for a given city
      function getWeather(city) {
