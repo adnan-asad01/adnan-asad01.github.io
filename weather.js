@@ -31,6 +31,7 @@ $(document).ready(function() {
         $('#temp-table').append(cityRow);
       });
     } */
+    /* card working lets bring map
     function getWeather(city) {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
         $.get(url, function(data) {
@@ -55,7 +56,30 @@ $(document).ready(function() {
           $('#temp-display').append(card);
         });
       }
-      
+      */
+     // Define a function to retrieve the current temperature, weather information, and time for a given city
+     function getWeather(city) {
+        var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.name + '&appid=' + api_key + '&units=metric';
+        $.get(url, function(data) {
+          var temp = Math.round(data.main.temp);
+          var weatherDesc = data.weather[0].description;
+          var weatherIcon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '.png';
+          var lat = data.coord.lat;
+          var lon = data.coord.lon;
+          var mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lon + '&zoom=10&size=200x200&maptype=roadmap&markers=color:red%7C' + lat + ',' + lon + '&key=YOUR_API_KEY';
+
+          var card = $('<div class="card text-center mx-3 mb-3"></div>');
+          var cardBody = $('<div class="card-body"></div>');
+          var cardTitle = $('<h5 class="card-title">' + city.name + '</h5>');
+          var cardSubtitle = $('<h6 class="card-subtitle mb-2 text-muted">' + temp + '°C ' + weatherDesc + ' <img src="' + weatherIcon + '" height="50px"></h6>');
+          var cardText = $('<p class="card-text">Current time: ' + new Date().toLocaleTimeString('en-US', { timeZone: city.timezone }) + '</p>');
+          var cardImage = $('<img src="' + mapUrl + '" class="card-img-bottom" alt="' + city.name + '">');
+
+          cardBody.append(cardTitle, cardSubtitle, cardText, cardImage);
+          card.append(cardBody);
+          $('#temp-display').append(card);
+        });
+      }
 
     // Retrieve the temperature, weather, and time data for each city and display it in a table format
     for (var i = 0; i < cities.length; i++) {
