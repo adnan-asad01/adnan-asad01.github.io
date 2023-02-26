@@ -8,7 +8,11 @@ $(document).ready(function() {
       var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + api_key + '&units=metric';
       $.get(url, function(data) {
         var temp = data.main.temp;
-        $('#temp-display').append('<div class="city-temp"><span class="city">' + city + ': '+'</span><span class="temp">' + temp + '°C</span></div>');
+        var cityDiv = $('<div class="col-sm-6 col-md-4 col-lg-3 mb-4"></div>');
+        var cityTitle = $('<h4 class="text-center">' + city + '</h4>');
+        var tempDisplay = $('<p class="text-center">' + temp + '°C</p>');
+        cityDiv.append(cityTitle, tempDisplay);
+        $('#temp-display').append(cityDiv);
       });
     }
     
@@ -17,4 +21,3 @@ $(document).ready(function() {
       getTemp(cities[i]);
     }
   });
-  
