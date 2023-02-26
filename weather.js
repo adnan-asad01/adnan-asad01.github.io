@@ -1,5 +1,3 @@
-//require('dotenv').config()
-
 $(document).ready(function() {
     // Define the API key and cities to retrieve temperature and time data for
     var api_key = '2302790a204dcdb09dda857f85a308e0';
@@ -39,7 +37,6 @@ $(document).ready(function() {
       getWeather(cities[i]);
     }
   });
-  /*
   function updateTime() {
     var now = new Date();
     var hours = now.getHours();
@@ -64,4 +61,4 @@ $(document).ready(function() {
   $(document).ready(function() {
     updateTime();
   });
-  */
+  
