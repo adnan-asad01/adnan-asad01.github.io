@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Define the API key and cities to retrieve temperature data for
-    var api_key = 'your-api-key';
+    var api_key = '2302790a204dcdb09dda857f85a308e0';
     var cities = ['New York', 'London', 'Paris', 'Tokyo', 'Sydney'];
     
     // Define a function to retrieve the current temperature for a given city
