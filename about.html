@@ -51,11 +51,29 @@
       
     </div>
     <div class="container">
-        <h1>Hi</h1>
-        <h3 class="temp-subtitle">I am trying out a new page</h3>
-        
+        <h1>Astronomy Picture of the Day</h1>
+        <img id="apod-img" src="" alt="Astronomy Picture of the Day">
+        <p id="apod-title"></p>
+        <p id="apod-explanation"></p>
     </div>
     
     </div>
+    <script>
+        const api_url = "https://api.nasa.gov/planetary/apod";
+        const api_key = "eLQBWfhGJUiTrUrRaVRgvUvPriRp3mqWeQObIjae";
+    
+        fetch(`${api_url}?api_key=${api_key}`)
+          .then(response => response.json())
+          .then(data => {
+            const apod_img = document.getElementById("apod-img");
+            apod_img.src = data.url;
+            const apod_title = document.getElementById("apod-title");
+            apod_title.innerText = data.title;
+            const apod_explanation = document.getElementById("apod-explanation");
+            apod_explanation.innerText = data.explanation;
+          })
+          .catch(error => console.error(error));
+      </script>
+    </body>
 </body>
 </html>
