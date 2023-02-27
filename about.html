@@ -18,8 +18,11 @@
           color: #333333;
         }
         .container {
-          margin: 0 auto;
-        }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;        }
         h1, h2, h3 {
           color: #4d79ff;
           text-align: center;
@@ -38,31 +41,40 @@
         .navbar a:hover {
           background-color: #dddddd;
         }
-        .apod-title{
-          display: flex;
-          justify-content: center;
-        }
-        .apod-img{
-          justify-content: center;
-        }
+        #apod-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+    }
+    #apod-img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            height: auto;
+            position: relative;
+    }
     </style>
 </head>
 <body>
-  <div class="container">
-    <div class="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="about.html">About</a>
-      <a href="#projects">Project</a>
-      
-    </div>
     <div class="container">
-        <h1>Astronomy Picture of the Days</h1>
+      <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="about.html">About</a>
+        <a href="#projects">Project</a>
+      </div>
+      <div class="container">
+        <h1>Astronomy Picture of the Day</h1>
         <img id="apod-img" src="" alt="Astronomy Picture of the Day">
         <p id="apod-title"></p>
         <p id="apod-explanation"></p>
-    </div>
-    
+      </div>
     </div>
     <script>
         const api_url = "https://api.nasa.gov/planetary/apod";
